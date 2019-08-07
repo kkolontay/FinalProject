@@ -1,23 +1,25 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.ads.MobileAds;
+import com.kkolontay.addinactivity.AddActivity;
+import com.kkolontay.joke.JokeMaker;
 
 
 public class MainActivity extends AppCompatActivity {
+    private final static String JOKE = "joke";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(this, "ca-app-pub-7723881646850908~2569874788");
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-7723881646850908~2569874788");
     }
 
 
@@ -44,8 +46,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, JokeMaker.maker(), Toast.LENGTH_SHORT).show();
     }
 
+    public void switchActivity(View view ) {
+        Intent intent = new Intent(this, AddActivity.class);
+        intent.putExtra(JOKE, JokeMaker.maker());
+        startActivity(intent);
+    }
 
 }

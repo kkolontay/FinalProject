@@ -4,4 +4,7 @@
     <string name="button_text">Tell Joke</string>
     <string name="action_settings">Settings</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id2">ca-app-pub-7723881646850908/5270584966</string>
+    <string name="tell_joke_in_activity">TELL JOKE IN ACTIVITY</string>
+
 </resources>

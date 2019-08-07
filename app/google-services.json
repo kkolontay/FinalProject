@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "107129462519-2pgvqf5p6o65ihle1nptcr82m3uuqptp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.udacity.gradle.builditbigger",
+            "certificate_hash": "0e2d3eaf04141d033d0b08e9f1c0e9033b1e6e8d"
+          }
+        },
+        {
           "client_id": "107129462519-v03jn567lp5cp6hajipap2o8hmvbbji2.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -33,7 +41,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-7723881646850908~2569874788"
     }
   ],
   "configuration_version": "1"

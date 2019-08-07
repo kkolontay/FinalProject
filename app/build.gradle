@@ -36,6 +36,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     endpointsServer project(path: ':backend', configuration: 'endpoints')
+    implementation project(':joke')
+    implementation project(':addinactivity')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.firebase:firebase-ads:18.1.1'
     implementation 'com.google.api-client:google-api-client:1.23.0'
