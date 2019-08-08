@@ -8,8 +8,8 @@
    }
   }
  },
- "basePath": "/_ah/api/myApi/v1/sayHi/",
- "baseUrl": "https://myApplicationId.appspot.com/_ah/api/myApi/v1/sayHi/",
+ "basePath": "/_ah/api/jokeApi/v1/sayJoke/",
+ "baseUrl": "https://myApplicationId.appspot.com/_ah/api/jokeApi/v1/sayJoke/",
  "batchPath": "batch",
  "description": "This is an API",
  "discoveryVersion": "v1",
@@ -17,23 +17,23 @@
   "x16": "http://www.google.com/images/icons/product/search-16.gif",
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
- "id": "myApi:v1",
+ "id": "jokeApi:v1",
  "kind": "discovery#restDescription",
  "methods": {
-  "sayHi": {
+  "sayJoke": {
    "httpMethod": "POST",
-   "id": "myApi.sayHi",
+   "id": "jokeApi.sayJoke",
    "parameterOrder": [
-    "name"
+    "joke"
    ],
    "parameters": {
-    "name": {
+    "joke": {
      "location": "path",
      "required": true,
      "type": "string"
     }
    },
-   "path": "{name}",
+   "path": "{joke}",
    "response": {
     "$ref": "MyBean"
    },
@@ -42,7 +42,7 @@
    ]
   }
  },
- "name": "myApi",
+ "name": "jokeApi",
  "ownerDomain": "backend.builditbigger.gradle.udacity.com",
  "ownerName": "backend.builditbigger.gradle.udacity.com",
  "parameters": {
@@ -103,6 +103,6 @@
    "type": "object"
   }
  },
- "servicePath": "myApi/v1/sayHi/",
+ "servicePath": "jokeApi/v1/sayJoke/",
  "version": "v1"
 }

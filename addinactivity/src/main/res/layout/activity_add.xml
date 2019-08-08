@@ -12,10 +12,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pushToServerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/push_joke"
+        app:layout_constraintStart_toStartOf="@+id/jokeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/jokeTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
