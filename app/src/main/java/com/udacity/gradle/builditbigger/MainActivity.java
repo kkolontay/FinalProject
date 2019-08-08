@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,19 +8,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
+
 import com.google.android.gms.ads.MobileAds;
 import com.kkolontay.addinactivity.AddActivity;
 import com.kkolontay.joke.JokeMaker;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.JokeAskedInterface {
     private final static String JOKE = "joke";
+    private EndpointsAsyncTask endpoint;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-7723881646850908~2569874788");
+        endpoint = new EndpointsAsyncTask();
     }
 
 
@@ -55,4 +62,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void joking(View view) {
+        if (endpoint != null) {
+            endpoint.execute(new Pair<Context, String>(this, JokeMaker.maker()));
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        endpoint = null;
+        super.onDestroy();
+    }
+
+    public void jokeAsked(String joke) {
+        Intent intent = new Intent(this, AddActivity.class);
+        intent.putExtra(JOKE, joke);
+        startActivity(intent);
+    }
 }

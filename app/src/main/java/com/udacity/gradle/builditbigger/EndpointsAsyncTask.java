@@ -2,19 +2,21 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import androidx.core.util.Pair;
-
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.udacity.gradle.builditbigger.backend.jokeApi.JokeApi;
-
 import java.io.IOException;
 
-class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+
+    public interface JokeAskedInterface {
+        void jokeAsked(String joke);
+    }
+
     private static JokeApi myApiService = null;
     private Context context;
 
@@ -33,7 +35,6 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
                     });
-            // end options for devappserver
 
             myApiService = builder.build();
         }
@@ -50,6 +51,10 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+       EndpointsAsyncTask.JokeAskedInterface interfase =  (EndpointsAsyncTask.JokeAskedInterface) context;
+       if (interfase != null) {
+           interfase.jokeAsked(result);
+       }
     }
+
 }
