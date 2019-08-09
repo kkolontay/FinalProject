@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
@@ -18,7 +19,7 @@ import com.kkolontay.joke.JokeMaker;
 public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.JokeAskedInterface {
     private final static String JOKE = "joke";
     private EndpointsAsyncTask endpoint;
-
+    private ProgressBar progress;
 
 
     @Override
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         endpoint = new EndpointsAsyncTask();
+        progress = findViewById(R.id.progressBar);
+        progress.setVisibility(View.INVISIBLE);
     }
 
 
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
 
     public void joking(View view) {
         if (endpoint != null) {
+            progress.setVisibility(View.VISIBLE);
             endpoint.execute(new Pair<Context, String>(this, JokeMaker.maker()));
         }
     }
@@ -70,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
     }
 
     public void jokeAsked(String joke) {
+        progress.setVisibility(View.INVISIBLE);
         Intent intent = new Intent(this, AddActivity.class);
         intent.putExtra(JOKE, joke);
         startActivity(intent);

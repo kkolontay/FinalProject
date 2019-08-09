@@ -67,4 +67,5 @@
         android:onClick="joking"
         android:text="@string/push_joke_to_server" />
 
+
 </RelativeLayout>
