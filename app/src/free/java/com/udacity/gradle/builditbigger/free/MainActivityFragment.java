@@ -31,14 +31,19 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_main, container, false);
+        View root = inflater.inflate(R.layout.fragment_main_free, container, false);
 
         MobileAds.initialize(context, "ca-app-pub-7723881646850908~2569874788");
-
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
+        tellJokeButton = root.findViewById(R.id.tell_joke_button);
+        tellJokeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tellJoke();
+            }
+        });
         return root;
     }
 
@@ -46,13 +51,7 @@ public class MainActivityFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context = context;
-        tellJokeButton = getActivity().findViewById(R.id.tell_joke_button);
-        tellJokeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tellJoke();
-            }
-        });
+
     }
 
     private void tellJoke() {

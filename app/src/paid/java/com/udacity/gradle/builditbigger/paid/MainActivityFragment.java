@@ -28,6 +28,13 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
+        tellJokeButton = root.findViewById(R.id.tell_joke_button);
+        tellJokeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tellJoke();
+            }
+        });
         return root;
     }
 
@@ -35,13 +42,7 @@ public class MainActivityFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context = context;
-        tellJokeButton = getActivity().findViewById(R.id.tell_joke_button);
-        tellJokeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tellJoke();
-            }
-        });
+
     }
 
     private void tellJoke() {
