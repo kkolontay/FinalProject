@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-7723881646850908~2569874788");
         endpoint = new EndpointsAsyncTask();
     }
 
@@ -50,10 +49,6 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void tellJoke(View view) {
-        Toast.makeText(this, JokeMaker.maker(), Toast.LENGTH_SHORT).show();
     }
 
     public void switchActivity(View view ) {

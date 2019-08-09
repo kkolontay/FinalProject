@@ -1,8 +1,10 @@
-package com.udacity.gradle.builditbigger.free;
+package com.udacity.gradle.builditbigger.paid;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,17 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.kkolontay.joke.JokeMaker;
 import com.udacity.gradle.builditbigger.R;
 
 
 public class MainActivityFragment extends Fragment {
     private Context context;
-    private InterstitialAd mInterstitialAd;
     private Button tellJokeButton;
 
     public MainActivityFragment() {
@@ -30,15 +27,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View root = inflater.inflate(R.layout.fragment_main, container, false);
-
-        MobileAds.initialize(context, "ca-app-pub-7723881646850908~2569874788");
-
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
         return root;
     }
 
@@ -56,9 +45,6 @@ public class MainActivityFragment extends Fragment {
     }
 
     private void tellJoke() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
         Toast.makeText(context, JokeMaker.maker(), Toast.LENGTH_SHORT).show();
     }
 }

@@ -6,7 +6,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".paid.MainActivityFragment">
 
     <TextView
         android:id="@+id/instructions_text_view"
@@ -55,7 +56,6 @@
         android:text="@string/tell_joke_in_activity" />
 
     <Button
-
         android:id="@+id/pushToServer_Joke_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

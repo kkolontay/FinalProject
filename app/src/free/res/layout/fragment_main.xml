@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivityFragment">
+    tools:context=".free.MainActivityFragment">
 
     <TextView
         android:id="@+id/instructions_text_view"
@@ -26,6 +26,7 @@
         android:text="@string/instructions" />
 
     <Button
+        android:id="@+id/tell_joke_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
@@ -38,7 +39,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="222dp"
         android:layout_marginRight="16dp"
-        android:onClick="tellJoke"
         android:text="@string/button_text" />
 
     <com.google.android.gms.ads.AdView
