@@ -33,25 +33,37 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="222dp"
+        android:layout_marginRight="16dp"
         android:onClick="tellJoke"
         android:text="@string/button_text" />
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
 
     <Button
         android:id="@+id/adroidLibrary_switch_activity_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="323dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="212dp"
         android:onClick="switchActivity"
         android:text="@string/tell_joke_in_activity" />
 
@@ -59,12 +71,17 @@
         android:id="@+id/pushToServer_Joke_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="106dp"
-        android:layout_marginRight="118dp"
-        android:onClick="joking"
-        android:text="@string/push_joke_to_server" />
+        android:layout_marginStart="143dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/push_joke_to_server"
+        android:onClick="joking"/>
 
 </RelativeLayout>
